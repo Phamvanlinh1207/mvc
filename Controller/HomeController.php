@@ -2,11 +2,11 @@
 <?php
 
 class HomeController
-{ 
+{
     public function __construct()
     {
     }
-    
+
     public function invoke()
     {
         if (isset($_GET['page'])) {
@@ -28,9 +28,12 @@ class HomeController
                     break;
                 case 'introduce':
                     $this->introducePage();
-                    break;               
+                    break;
                 case 'registration':
                     $this->registrationPage();
+                    break;
+                case 'login':
+                    $this->loginPage();
                     break;
             }
         }
@@ -53,7 +56,8 @@ class HomeController
     {
         require_once './Model/ProductModel.php';
         $productModel = new ProductModel();
-        $singleList = $productModel->all($id);
+        $product = $productModel->find($_GET['id']);
+
         require_once './View/single.php';
     }
     private function cartPage()
@@ -75,5 +79,9 @@ class HomeController
     private function registrationPage()
     {
         require_once './View/registration.php';
+    }
+    private function loginPage()
+    {
+        require_once './View/login.php';
     }
 }

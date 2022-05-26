@@ -36,8 +36,6 @@
                     </div>
                 </div>
                 <!--Bắt Đầu Phần Nội Dung-->
-                <?php
-                    foreach($singleList as $product) ?>
                 <div class="container">
                     <div class="main">
                         <div class="row">

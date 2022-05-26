@@ -40,7 +40,7 @@
             <div class="container">
                 <div class="row noidung">
                     <div class="dangnhap col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <h4>ĐĂNG NHẬP TÀI KHOẢN</h4>
+                        <h4>ĐĂNG KÝ TÀI KHOẢN</h4>
                         <p>Họ</p>
                         <input type="text" placeholder="Họ" /><br>
                         <p>Email</p>

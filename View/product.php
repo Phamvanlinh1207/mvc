@@ -132,12 +132,11 @@
                                                         <div class="card-body">
                                                             <p style="color: black"><?php echo $product->name; ?></p>
                                                             <b class="card-text  " style="color: red"><?php echo $product->price; ?>,000đ</b>
-                                                            <a class="btn btn-warning" href="<?php echo url('cart')?>?id=<?php echo $product->id; ?>">Xem chi tiết </a>
+                                                            <a class="btn btn-warning" href="<?php echo url_pattern('homeController', 'single', $product->id); ?>">Xem chi tiết </a>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
-
                                         <?php } ?>
 
 

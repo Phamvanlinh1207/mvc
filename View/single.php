@@ -1,4 +1,4 @@
-    <!doctype html>
+<!doctype html>
     <html lang="en">
     <head>
         <title>Trang chủ</title>
@@ -75,7 +75,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button><a href="<?php echo url('cart')?>?id=<?php echo $product->id ?>">Thêm vào giỏ hàng</a></button>
+                                <button><a href="<?php echo url_pattern('homeController', 'cart', $product->id); ?>">Thêm vào giỏ hàng</a></button>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
                                 <div class="card shiphang">
@@ -230,7 +230,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

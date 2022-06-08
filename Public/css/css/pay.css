@@ -1,0 +1,27 @@
+body {
+    background: rgb(255, 255, 255);
+}
+
+.content .left {
+    margin-top: 40px;
+}
+
+.content .thongtin textarea {
+    padding: 8px;
+    width: 370px;
+    margin-top: 20px;
+}
+
+.content .vanchuyen p {
+    background-color: rgba(32, 154, 185, 0.447);
+    padding: 6px;
+    margin-top: 20px;
+
+}
+
+.content .donhang {
+    background: rgb(249, 253, 253);
+    border: 1px solid #767474;
+    height: 596px;
+}
+

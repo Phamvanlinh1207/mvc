@@ -41,15 +41,16 @@
                 <div class="row noidung">
                     <div class="dangnhap col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <h4>ĐĂNG NHẬP TÀI KHOẢN</h4>
-                        <form id="form" method="POST">
-                            <input type="hidden" name="controller" value="loginController">
-                                <p>Họ Tên </p>
-                                <input id="name" type="text" placeholder="Name" /><br>
-                                <p>Mật khẩu</p>
-                                <input id="password" type="password" placeholder="Password" /> <br>
-                                <div id="error"></div>
-                                <button type="submit">ĐĂNG NHẬP</button>
-                                <a href="#">Quên mật khẩu?</a>
+                        <form id="form" method="POST" action="index.php">
+                            <input type="hidden" name="controller" value="authController">
+                            <input type="hidden" name="page" value="login">
+                            <p>Số điện thoại </p>
+                            <input id="phone" name="phone" type="tel" placeholder="Số điện thoại" /><br>
+                            <p>Mật khẩu</p>
+                            <input id="password" name="password" type="password" placeholder="Password" /> <br>
+                            <div id="error"></div>
+                            <button type="submit">ĐĂNG NHẬP</button>
+                            <a href="#">Quên mật khẩu?</a>
                         </form>
                         <div class="them">
                             <h5>Đăng nhập bằng cách khác</h5>

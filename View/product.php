@@ -126,17 +126,18 @@
                                         <?php
                                         foreach ($productList as $product) { ?>
                                             <div class="col-xs-3 col-3 col-lg-3 mb-3">
-                                                <a href="<?php echo url('single')?>?id=<?php echo $product->id; ?>">
+                                                <a href="<?php echo url_pattern('homeController', 'single', $product->id); ?>">
                                                     <div class="card" style="text-align:Center;">
                                                         <img src="<?php echo $product->image; ?>" width="150px" height="170px">
                                                         <div class="card-body">
                                                             <p style="color: black"><?php echo $product->name; ?></p>
                                                             <b class="card-text  " style="color: red"><?php echo $product->price; ?>,000đ</b>
-                                                            <a class="btn btn-warning" href="<?php echo url_pattern('homeController', 'single', $product->id); ?>">Xem chi tiết </a>
+                                                            <a class="btn btn-warning" href="<?php echo url_pattern('homeController', 'single', $product->id) ?>">Xem chi tiết </a>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
+
                                         <?php } ?>
 
 

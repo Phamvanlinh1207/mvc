@@ -1,0 +1,9 @@
+
+/* order style */
+.order-pending{
+    background-color: yellow;
+}
+
+.order-finished{
+    background-color: green;
+}

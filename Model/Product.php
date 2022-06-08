@@ -3,6 +3,7 @@ class Product {
     public $id;
     public $name;
     public $price;
+    public $quantity;
     public $image;
 
     public function __construct($id, $name, $price, $quantity, $image) {

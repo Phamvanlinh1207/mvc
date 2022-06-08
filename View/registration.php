@@ -41,19 +41,19 @@
                 <div class="row noidung">
                     <div class="dangnhap col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <h4>ĐĂNG KÝ TÀI KHOẢN</h4>
-                        <p>Họ</p>
-                        <input type="text" placeholder="Họ" /><br>
+                        <p>Họ Tên</p>
+                        <input name="name"type="text" placeholder="Họ Tên" /><br>
                         <p>Email</p>
-                        <input type="email" placeholder="Email" /><br>
+                        <input name="email" type="email" placeholder="Email" /><br>
                         <p>Mật khẩu</p>
-                        <input type="password" placeholder="Password" /> <br>
-                        <button>ĐĂNG KÝ</button> <a href="dangnhap.html"><button>ĐĂNG NHẬP</button> </a>
+                        <input name="password" type="password" placeholder="Password" /> <br>
+                        <button type="submit">ĐĂNG KÝ</button> <a href=""><button>ĐĂNG NHẬP</button> </a>
                     </div>
                     <div class="dangnhap2 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <p>Tên</p>
-                        <input type="text" placeholder="Tên" /><br>
                         <p>Số điện thoại</p>
                         <input type="tel" placeholder="Số điện thoại" /><br>
+                        <p>Địa chỉ</p>
+                        <input name=""type="text" placeholder="Địa chỉ" /><br>
                     </div>
                 </div>
             </div>

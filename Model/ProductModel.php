@@ -8,7 +8,7 @@ class ProductModel extends Database {
         $this->connect();
     }
 
-    public function find($id){
+    public function find($id) {
         $sql = "select * from products where id=? LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
@@ -42,45 +42,50 @@ class ProductModel extends Database {
 
         return $products;
     }
-    function getOrdersBySession() {
-        if(isset($_SESSION['cart'])){
-            $cart = $_SESSION['cart'];
-        }else{
-            $cart = array();
-        }
-        return $cart;
-    }
-    function create_order($productId, $name, $image, $price, $quantity) {
-        if(isset($_SESSION['cart'])){
-            $cart = $_SESSION['cart'];
-        }else{
-            $cart = array();  
-        }
-    
-        $productExists = false;
-    
-        foreach($cart as $key => $value){
-            if($productId == $value['productId']){
-                $value['quantity'] = $value['quantity'] + $quantity;
-                $cart[$key] = $value;
-                $productExists = true;
-                break;
-            }
-        }
-    
-        if(!$productExists) {
-            $product = array(
-                'productId' => $productId,
-                'name' => $name,
-                'image' => $image,
-                'price' => $price,
-                'quantity' => $quantity,
-            );
-        
-            $cart[] = $product;
-        }
-       
-        $_SESSION['cart'] = $cart;
+    public function delete($id){
+        $sql = "delete from products where id = " . $id;
+        $this->pdo->exec($sql);
     }
 
+    public function create($attr = array()) {
+        $name = $attr['name'];
+        $price = $attr['price'];
+        $quantity = $attr['quantity'];
+        $image = $attr['image'];
+        $sql = "insert into products(name, price, quantity, image) values('$name','$price','$quantity','$image')";
+
+        $this->pdo->exec($sql);
+    }
+
+    public function update($attr = array()) {
+        $name = $attr['name'];
+        $price = $attr['price'];
+        $quantity = $attr['quantity'];
+        $image = $attr['image'];
+        $sql ="UPDATE products set name= '$name', price= '$price', quantity= '$quantity', image='$image'  where id=" . $attr['id'];
+        var_dump($sql);
+        
+        $this->pdo->exec($sql);
+    }
+    public function findByName($name){
+        $sql = "select * from products where name like '%$name%'";
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+    
+        $products = array();
+    
+        foreach($query as $product){
+            $products[] = new Product(
+                $product['id'],
+                $product['name'],
+                $product['price'],
+                $product['quantity'],
+                $product['image']
+            );
+        }
+    
+        return $products;
+    }
+    
+    
 }

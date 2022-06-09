@@ -42,10 +42,10 @@
                 <div class="row noidung">
                     <div class="dangnhap col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <h4>LIÊN HỆ</h4>
-                        <p>Họ *</p>
+                        <p>Họ tên*</p>
                         <input type="text" placeholder="Họ" /><br>
-                        <p>Email *</p>
-                        <input type="email" placeholder="Email" /><br>
+                        <p>Số điện thoại *</p>
+                        <input type="phone" placeholder="Số điện thoại" /><br>
                         <p>Nội dung *</p>
                         <textarea class="noidung01" placeholder="Nội dung"> </textarea> <br>
                         <button>GỬI MẪU LIÊN HỆ</button>

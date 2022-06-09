@@ -46,7 +46,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="danhmuc">
                         <div class="card mt-3" style="width: 270px;">
                             <div class="card-header">
@@ -76,7 +75,7 @@
                                             <div class="card-body">
                                                 <p class="card-text"><a href="">Giày da Converse cao su</a></p>
                                                 <p class="card-text"><small class="text-muted"><b>1.200.000đ</b>
-                                                        <del>1.400.000đ</del></small></p>
+                                                <del>1.400.000đ</del></small></p>
                                             </div>
                                         </div>
                                     </div>

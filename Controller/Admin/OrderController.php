@@ -9,36 +9,39 @@ class OrderController {
     }
 
     public function invoke() {
-        if(!isset($_GET['page'])) die();
-
-        switch($_GET['page']){
-            case 'index':
-                $this->indexPage();
-                break;
-            case 'create':
-                $this->createPage();
-                break;
-            case 'edit':
-                $this->editPage();
-                break;
-            case 'delete':
-                $this->deletePage();
-                break;
-            case 'order':
-                $this->storePage();
-                break;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            switch($_GET['page']){
+                case 'index':
+                    $this->indexPage();
+                    break;
+                case 'create':
+                    $this->createPage();
+                    break;
+                case 'edit':
+                    $this->editPage();
+                    break;
+                case 'delete':
+                    $this->deletePage();
+                    break;
+                case 'order':
+                    $this->storePage();
+                    break;
+            }
         }
-
-        if(!isset($_POST['page'])) die();
         
-        switch($_POST['page']){
-            case 'store':
-                $this->storePage();
-                break;
-            case 'update':
-                $this->updatePage();
-                break;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            switch($_POST['page']){
+                case 'store':
+                    $this->storePage();
+                    break;
+                case 'update':
+                    $this->updatePage();
+                    break;
+            }
         }
+
+        
+        
     }
 
     private function indexPage(){
@@ -71,10 +74,9 @@ class OrderController {
     private function updatePage(){
         $this->orderModel->update(
             array(
-                'code' => $_POST['code'],
                 'description' => $_POST['description'],
-                'users_id' => $_POST['users_id']
-                 
+                'status' => $_POST['status'],
+                'id' => $_POST['id']
             )
         );
 

@@ -1,50 +1,170 @@
-<?php
-include_once './View/inc/header.php';
-include_once './Model/Database.php';
-?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Trade</title>
-    
-	<link rel="stylesheet" href="./Public/css/style1.css">
-        
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
+    <title>Sản Phẩm</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <!-- Own Carousel -->
-    <link rel="stylesheet" href="./Public/css/owl.carousel.css">
-    <link rel="stylesheet" href="./Public/css/owl.theme.green.css">
-     <!-- JQuery & Own Carousel -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="./Public/js/owl.carousel.js"></script>
-    <script src="./Public/js/web.js"></script>
+    <!-- hiệu ứng button -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <!-- Scrip -->
+    <link rel="stylesheet" href="./Public/css/style.css">
+    <link rel="stylesheet" href="./Public/css/hieuungphongto.css">
+    <link rel="stylesheet" href="./Public/css/img-hang.css">
+    <link rel="stylesheet" href="./Public/css/sanpham.css">
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-    
-    
-    <div class="box mt-3 ">
-        <div class="row " >
-            <!--Vùng dữ liệu--> 
-            <?php 
-                foreach($productList as $product) { ?>
-                    <div class="col-xs-2 col-2 col-lg-2 mb-4" >
-                        <div class="card"  >
-                            <img src="<?php echo $product->image;?>" width="100%" height="200px">
-                            <div class="card-body">
-                                <a href="single.php?id=<?php echo $product->id; ?>"><?php echo $product->name; ?></a>
-                                <h6 class="card-text"><?php echo $product->price; ?>đ</h6>
-                                
-                                <a  class="btn btn-success" href="order.php?id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
+
+<body>
+    <!-- start header -->
+    <?php include_once './View/inc/header.php' ?>
+    <!-- end header -->
+    <!-- start content -->
+    <div class="content">
+
+        <!-- main content -->
+        <div class="container">
+            <div class="row">
+                <!-- xemthem -->
+                <div class="xemthem logo col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                    <div class="danhmuc">
+                        <div class="card mt-3" style="width: 270px;">
+                            <div class="card-header">
+                                <h6><i class="fa fa-bars" aria-hidden="true"></i> DANH MỤC SẢN PHẨM</h6>
                             </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Bộ sưu tập mới</a></li>
+                                <li class="list-group-item"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Giày thời trang</a></li>
+                                <li class="list-group-item"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Giày thời trang nữ</a></li>
+                                <li class="list-group-item"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Giày mùa hè</a></li>
+                                <li class="list-group-item"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Giày công sở</a></li>
+                                <li class="list-group-item"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Giày thể thao</a></li>
+                                <li class="list-group-item"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> <b>Xem thêm...</b></a></li>
+                            </ul>
                         </div>
-                    </div>                      
-            <?php } ?>
+                    </div>
+                    <div class="danhmuc">
+                        <div class="card mt-3" style="width: 270px;">
+                            <div class="card-header">
+                                <h6>SẢN PHẨM NỔI BẬT</h6>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <div class="noibat mt-3 mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-md-4 card">
+                                            <img src="https://bizweb.dktcdn.net/thumb/small/100/091/132/products/5-min-a5bb63b5-5f5e-4109-ae48-b6f4e3c5a3aa.jpg?v=1468202641487" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <p class="card-text"><a href="">Giày da Converse cao su</a></p>
+                                                <p class="card-text"><small class="text-muted"><b>1.200.000đ</b>
+                                                        <del>1.400.000đ</del></small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noibat mt-3 mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-md-4 card">
+                                            <img src="https://bizweb.dktcdn.net/thumb/small/100/091/132/products/5-min-a5bb63b5-5f5e-4109-ae48-b6f4e3c5a3aa.jpg?v=1468202641487" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <p class="card-text"><a href="">Giày da Converse cao su</a></p>
+                                                <p class="card-text"><small class="text-muted"><b>1.200.000đ</b>
+                                                        <del>1.400.000đ</del></small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noibat mt-3 mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-md-4 card">
+                                            <img src="https://bizweb.dktcdn.net/thumb/small/100/091/132/products/5-min-a5bb63b5-5f5e-4109-ae48-b6f4e3c5a3aa.jpg?v=1468202641487" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <p class="card-text"><a href="">Giày da Converse cao su</a></p>
+                                                <p class="card-text"><small class="text-muted"><b>1.200.000đ</b>
+                                                        <del>1.400.000đ</del></small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="danhmuc mt-3">
+                        <div class="img-danhmuc  hover01 column ">
+                            <div>
+                                <figure><img src="https://bizweb.dktcdn.net/100/091/132/themes/857463/assets/index_sidebar_banner_image.jpg?1649297762433" />
+                                </figure>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end xemthem -->
+                <!-- main chính -->
+                <div class="main-chinh logo col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                    <div class="sp-moi">
+                        <div class="hr1 mb-2"> </div>
+                        <div class="container">
+                            <!-- <div class="row"> -->
+                            <h6>SẢN PHẨM TÌM KIẾM </h6>
+                            <hr>
+                            <!-- Vùng sản phẩm -->
+
+                            <!--Vùng dữ liệu-->
+                            <div class="box mt-3 ">
+                                <div class="row ">
+                                    <!--Vùng dữ liệu-->
+                                    <?php
+                                    foreach ($productList as $product) { ?>
+                                        <div class="col-xs-2 col-2 col-lg-2 mb-4">
+                                            <div class="card">
+                                                <img src="<?php echo $product->image; ?>" width="100%" height="200px">
+                                                <div class="card-body">
+                                                    <a href="single.php?id=<?php echo $product->id; ?>"><?php echo $product->name; ?></a>
+                                                    <h6 class="card-text"><?php echo $product->price; ?>đ</h6>
+
+                                                    <a class="btn btn-success" href="order.php?id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- end main chính -->
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <button type="button" class="btn btn-success mt-3" style="margin-left:720px; ">Xem thêm</button>  
     </div>
-<?php include_once './View/inc/footer.php'; ?>
+    <!-- end content -->
+    <!-- start footer -->
+
+    <?php include_once './View/inc/footer.php' ?>
+    <!-- end footer -->
+    <button id="myBtn" title="Lên đầu trang"><img src="https://cdn.pixabay.com/photo/2013/07/12/19/20/arrow-154593_960_720.png" title='lên đầu trang' width='14px' /></button>
+    <!-- script -->
+    <script src="./public/js/lendautrang.js"></script>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+
+</html>

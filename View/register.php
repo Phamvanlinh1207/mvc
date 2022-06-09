@@ -16,7 +16,6 @@
     <!-- Bootstrap CSS v5.0.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-
 <body>
     <!-- start header -->
     <?php include_once './View/inc/header.php' ?>
@@ -27,7 +26,7 @@
             <div class="container">
                 <div class="top-content">
                     <div>
-                        <p> <a href="index.php">Trang chủ</a>
+                        <p> <a href="#">Trang chủ</a>
                             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                             Đăng nhập tài khoản
                         </p>
@@ -38,22 +37,22 @@
             <!-- main dangnhap -->
             <!--Bắt Đầu Phần Nội Dung-->
             <div class="container">
-                <div class="row noidung">
-                    <div class="dangnhap col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <h4>ĐĂNG KÝ TÀI KHOẢN</h4>
-                        <p>Họ Tên</p>
-                        <input name="name"type="text" placeholder="Họ Tên" /><br>
-                        <p>Email</p>
-                        <input name="email" type="email" placeholder="Email" /><br>
-                        <p>Mật khẩu</p>
-                        <input name="password" type="password" placeholder="Password" /> <br>
-                        <button type="submit">ĐĂNG KÝ</button> <a href=""><button>ĐĂNG NHẬP</button> </a>
-                    </div>
-                    <div class="dangnhap2 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <p>Số điện thoại</p>
-                        <input type="tel" placeholder="Số điện thoại" /><br>
-                        <p>Địa chỉ</p>
-                        <input name=""type="text" placeholder="Địa chỉ" /><br>
+                <div class="row noidung" style="text-align:center;">
+                    <div class="dangnhap col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-12">
+                        <form action="" method="POST">
+                            <input type="hidden" name="controller" value="authController">
+                            <input type="hidden" name="page" value="register">
+                            <h4>ĐĂNG KÝ TÀI KHOẢN</h4>
+                            <p>Họ Tên</p>
+                            <input name="name" id="name" type="text" placeholder="Họ Tên" /><br>
+                            <p>Số điện thoại</p>
+                            <input name="phone" id="phone" type="tel" placeholder="Số điện thoại" /><br>
+                            <p>Mật khẩu</p>
+                            <input name="password" id="password" type="password" placeholder="Password" /> <br>
+                            <p>Địa chỉ</p>
+                            <input name="address" id="address" type="text" placeholder="Địa chỉ" /><br>
+                            <button type="submit">ĐĂNG KÝ</button><a href="#"><button>ĐĂNG NHẬP</button> </a>
+                        </form>
                     </div>
                 </div>
             </div>

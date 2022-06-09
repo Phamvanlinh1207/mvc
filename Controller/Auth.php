@@ -1,7 +1,6 @@
 <?php
 include_once './Model/Database.php';
 include_once './Model/User.php';
-include_once './Model/InfoUserModel.php';
 
 class Auth extends Database{
 
@@ -28,17 +27,7 @@ class Auth extends Database{
             unset($_SESSION['user']);
             $_SESSION['user'] = $user;
 
-            //Set session infouser
-            $infoUserModel = new InfoUserModel();
-            $infoUser = $infoUserModel->findByUserId($user['id']);
-
-            unset($_SESSION['infoUser']);
-            $_SESSION['infoUser'] = array(
-                'full_name' => $infoUser->full_name,
-                'address' => $infoUser->address,
-                'users_id' => $infoUser->users_id
-            );
-
+            
             if($user['role'] == 'admin') redirect(admin_url_pattern('categoryController', 'index'));     
         }else{
             redirect(url_pattern('authController', 'login'));
@@ -47,9 +36,9 @@ class Auth extends Database{
 
     public function register($attr = array()){
         //check name is exist
+        $name = $attr['name'];
         $phone = $attr['phone'];
         $password = $attr['password'];
-        $full_name = $attr['full_name'];
         $address = $attr['address'];
 
         if($this->validating($phone)){
@@ -65,12 +54,14 @@ class Auth extends Database{
                 redirect(url_pattern('authController', 'login')); die();
             }else {
             //Them moi user
-                $sql = "insert into users(phone, password, role) values(:phone, :password, :role)";
+                $sql = "insert into users(name, phone, password, address, role) values(:name, :phone, :password, :address, :role)";
                 $stmt = $this->pdo->prepare($sql);
 
                 $role = 'user';
+                $stmt->bindParam(":name", $name);
                 $stmt->bindParam(":phone", $phone);
                 $stmt->bindParam(":password", $password);
+                $stmt->bindParam(":address", $address);
                 $stmt->bindParam(":role", $role);
 
                 $stmt->execute();
@@ -82,15 +73,6 @@ class Auth extends Database{
                 $stmt->execute();
                 $user = $stmt->fetch();
 
-                //Them thong tin infouser
-                $infoUserModel = new InfoUserModel();
-                $infoUserModel->create(
-                    array(
-                        'full_name' => $full_name,
-                        'address' => $address,
-                        'users_id' => $user['id']
-                    )
-                );
             }      
         
         } 

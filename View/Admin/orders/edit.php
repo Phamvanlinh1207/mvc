@@ -12,13 +12,13 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="./public/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./public/admin/vendor/f`ontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="./Public/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./public/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -47,54 +47,38 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Admin Panel</h1>
-                        <a href="<?php echo admin_url_pattern('categoryController', 'create'); ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                        <i class="fas fa-download fa-sm text-white-50"></i>Add Pay</a>
+                        <a href="" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i>Add Category</a>
                     </div>
-
                     <!-- Content Row -->
-                     <!-- DataTales Example -->
-                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">List Pay</h6>
+                    <form method="post">
+                        <input type="hidden" name="controller" value="orderController">
+                        <input type="hidden" name="page" value="update">
+                        <input type="hidden" name="id" value="<?php echo $order->id; ?>">
+                        <div class="form-group">
+                            <label for="exampleInputStatus1">Code:</label>
+                            <input name="code" disabled type="text" class="form-control" id="cat" value="<?php echo $order->code; ?>" aria-describedby="" placeholder="Enter code">                            
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>STT</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Address</th>
-                                            <th>Note</th>
-                                            <th>#</th>
-                                            <th>#</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>                                       
-                                    </tfoot>
-                                    <tbody>
-                                    <?php foreach($payList as $pay) { ?>
-                                        <tr>
-                                            <td><?php echo increment($i); ?></td>
-                                            <td><?php echo $pay->name; ?></td>
-                                            <td><?php echo $pay->phone; ?></td>
-                                            <td><?php echo $pay->address; ?></td>
-                                            <td><?php echo $pay->note; ?></td>
-                                            <td><a href="<?php echo admin_url_pattern('payController', 'edit', $pay->id); ?>">Edit</a></td>
-                                            <td><a href="<?php echo admin_url_pattern('payController', 'delete', $pay->id); ?>">Delete</a></td>
-                                        </tr>
-                                    <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="form-group">
+                            <label for="exampleInputStatus1">Description:</label>
+                            <input name="description" type="text" class="form-control" id="cat" value="<?php echo $order->description; ?>" aria-describedby="" placeholder="Enter description">                            
                         </div>
-                    </div>    
+                        <div class="form-group">
+                            <label for="exampleInputStatus1">Status:</label>
+                            <select name="status" id="status" class="form-control">
+                                <option value="pending" <?php if($order->status == 'pending') echo 'selected'; ?>>Pending</option>
+                                <option value="finished" <?php if($order->status == 'finished') echo 'selected'; ?>>Finshed</option>
+                            </select>
+                        </div>                      
+                       
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
+
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -130,28 +114,28 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?php echo url_pattern('homeController', 'home'); ?>">Logout</a>
+                    <a class="btn btn-primary" href="<?php echo url_pattern('authController', 'logout'); ?>">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="./public/admin/vendor/jquery/jquery.min.js"></script>
-    <script src="./public/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./View/public/Admin/vendor/jquery/jquery.min.js"></script>
+    <script src="./View/public/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="./public/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="./View/public/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="./public/admin/js/sb-admin-2.min.js"></script>
+    <script src="./View/public/Admin/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="./public/admin/vendor/chart.js/Chart.min.js"></script>
+    <script src="./View/public/Admin/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="./public/admin/js/demo/chart-area-demo.js"></script>
-    <script src="./public/admin/js/demo/chart-pie-demo.js"></script>
+    <script src="./View/public/Admin/js/demo/chart-area-demo.js"></script>
+    <script src="./View/public/Admin/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

@@ -18,52 +18,58 @@ class HomeController
 
     public function invoke()
     {
-        if (!isset($_GET['page'])) die();
-
-        switch ($_GET['page']) {
-            case 'product':
-                $this->productPage();
-                break;
-            case 'home':
-                $this->homePage();
-                break;
-            case 'single':
-                $this->singlePage();
-                break;
-            case 'introduce':
-                $this->introducePage();
-                break;
-            case 'new':
-                $this->newPage();
-                break;
-            case 'payPage':
-                $this->payPage();
-                break;
-            case 'knowledge':
-                $this->knowledgePage();
-                break;
-            case 'contact':
-                $this->contactPage();
-                break;
-            case 'search':
-                $this->searchPage();
-                break;
-            case 'login':
-                $this->loginPage();
-                break;
-            case 'cart':
-                $this->cartPage();
-                break;
-            case 'order':
-                $this->orderPage();
-                break;
-            case 'registration':
-                $this->registrationPage();
-                break;
-            case 'payProcess':
-                $this->payProcess();
-                break;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            switch ($_GET['page']) {
+                case 'product':
+                    $this->productPage();
+                    break;
+                case 'home':
+                    $this->homePage();
+                    break;
+                case 'single':
+                    $this->singlePage();
+                    break;
+                case 'introduce':
+                    $this->introducePage();
+                    break;
+                case 'new':
+                    $this->newPage();
+                    break;
+                case 'pay':
+                    $this->payPage();
+                    break;
+                case 'knowledge':
+                    $this->knowledgePage();
+                    break;
+                case 'contact':
+                    $this->contactPage();
+                    break;
+                case 'search':
+                    $this->searchPage();
+                    break;
+                case 'login':
+                    $this->loginPage();
+                    break;
+                case 'cart':
+                    $this->cartPage();
+                    break;
+                case 'order':
+                    $this->orderPage();
+                    break;
+                case 'registration':
+                    $this->registrationPage();
+                    break;
+            }
         }
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            switch ($_POST['page']) {
+                case 'payProcess':
+                    $this->payProcess();
+                    break;
+            }
+        }
+        
     }
 
     private function productPage()
@@ -131,8 +137,8 @@ class HomeController
         else
             $productList = array();
 
-        if (isset($_SESSION['infoUser']))
-            $infoUser = $_SESSION['infoUser'];
+        if (isset($_SESSION['user']))
+            $user = $_SESSION['user'];
 
         require_once './View/cart.php';
     }
@@ -170,7 +176,6 @@ class HomeController
                 'users_id' => $user['id']
             )
         );
-
         $orderDetailModel = new OrderDetailModel();
         $cart = $_SESSION['cart'];
         foreach ($cart as $orderDetail) {

@@ -48,10 +48,9 @@
                             <?php if($this->auth->user()) { ?>                              
                             <a class="btn hover-white dangxuat" href="<?php echo url_pattern('authController', 'logout'); ?>" role="button">Đăng xuất</a>
                             <?php } else { ?>             
-                            <a href="<?php echo url_pattern('homeController', 'login'); ?>">Đăng nhập</a> / <a href="<?php echo url_pattern('homeController', 'register'); ?>"> Đăng Ký</a> 
+                            <a href="<?php echo url_pattern('homeController', 'login'); ?>">Đăng nhập</a> / <a href="<?php echo url_pattern('authController', 'register'); ?>"> Đăng Ký</a> 
                             <?php } ?>                          
                         </div>
-
                     </div>
                     <div class="logo col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-1">
                         <div class="people">

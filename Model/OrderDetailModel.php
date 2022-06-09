@@ -52,9 +52,7 @@ class OrderDetailModel extends Database {
         $orders_code = $attr['orders_code'];
         $products_id = $attr['products_id'];
         $quantity = $attr['quantity'];
-  
         $sql = "insert into orders_details(orders_code, products_id, quantity) values('$orders_code', $products_id, $quantity)";
-
         $this->pdo->exec($sql);
     }
 

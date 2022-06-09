@@ -71,16 +71,14 @@ class OrderModel extends Database {
     }
 
     public function update($attr = array()) {
-        $code = $attr['code'];
         $description = $attr['description'];
-        $users_id = $attr['users_id'];
+        $status = $attr['status'];
         $id = $attr['id'];
-  
-        $sql = "update orders set code=:code, description=:description, users_id=:users_id where id=:id";
+
+        $sql = "update orders set description=:description, status=:status where id=:id";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(":code", $code);
         $stmt->bindParam(":description", $description);
-        $stmt->bindParam(":users_id", $users_id);
+        $stmt->bindParam(":status", $status);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
     } 
@@ -90,6 +88,32 @@ class OrderModel extends Database {
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(":begin", $begin);
         $stmt->bindParam(":end", $end);
+        $stmt->execute();
+
+        $query = $stmt->fetchAll();
+
+        $orders = array();
+
+        foreach($query as $order){
+            $orders[] = new Order(
+                $order['id'],
+                $order['code'],
+                $order['description'],
+                $order['status'],
+                $order['users_id'],
+                $order['created_at']
+                 
+            );
+            
+        }
+
+        return $orders;
+    }
+
+    public function findByStatus($status){
+        $sql = "select * from orders where status=:status";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":status", $status);
         $stmt->execute();
 
         $query = $stmt->fetchAll();

@@ -69,8 +69,7 @@
                                 <option value="pending" <?php if($order->status == 'pending') echo 'selected'; ?>>Pending</option>
                                 <option value="finished" <?php if($order->status == 'finished') echo 'selected'; ?>>Finshed</option>
                             </select>
-                        </div>                      
-                       
+                        </div>                                             
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

@@ -51,7 +51,6 @@
                         <a href="<?php echo admin_url_pattern('orderController', 'create'); ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                         <i class="fas fa-download fa-sm text-white-50"></i>Add Orders</a>
                     </div>
-
                     <!-- Content Row -->
                      <!-- DataTales Example -->
                      <div class="card shadow mb-4">
@@ -74,8 +73,8 @@
                                     <tbody>
                                         <?php // foreach( $info_userList as $info_user) { ?>
                                             <tr>
-                                                <td><?php echo $info_user['full_name']; ?></td>
-                                                <td><?php echo $info_user['address']; ?></td>
+                                                <td><?php echo $user['name']; ?></td>
+                                                <td><?php echo $user['address']; ?></td>
                                                 <td><?php echo $user['phone']; ?></td>
                                              </tr>
                                         <?php // } ?>
@@ -105,8 +104,7 @@
                                                 <td><?php echo increment($i); ?></td>
                                                 <td><?php echo $orders_detail->orders_id; ?></td>
                                                 <td><?php echo $orders_detail->products_id; ?></td>
-                                                <td><?php echo $orders_detail->quantity; ?></td>
-                                            
+                                                <td><?php echo $orders_detail->quantity; ?></td>                                          
                                                 <td><a href="<?php echo admin_url_pattern('orderdetailController', 'edit', $orderdetail->id); ?>">Edit</a></td>
                                                 <td><a href="<?php echo admin_url_pattern('orderdetailController', 'delete', $orderdetail->id); ?>">Delete</a></td>
                                             </tr>

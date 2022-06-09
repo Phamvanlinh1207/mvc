@@ -101,13 +101,12 @@ function xoa()
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">HÓA ĐƠN</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">Close</button>
                                             </div>
                                             <div class="modal-body">
                                                 <form id="formPay" method="post">
                                                     <input type="hidden" name="controller" value="homeController">
-                                                    <input type="hidden" name="page" value="payProcess">
-                                                    
+                                                    <input type="hidden" name="page" value="payProcess">                      
                                                     <label for="inputPassword5" class="form-label">Họ và tên</label>
                                                     <input type="text" class="form-control" placeholder="Họ và tên" value="<?php echo $user['name']; ?>" name="name">
                                                     <label for="inputPassword5" class="form-label">Số điện thoại</label>

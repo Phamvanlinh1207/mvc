@@ -60,8 +60,7 @@ class HomeController
                     $this->registrationPage();
                     break;
             }
-        }
-        
+        }        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             switch ($_POST['page']) {
                 case 'payProcess':
@@ -117,6 +116,7 @@ class HomeController
             $productModel = new ProductModel();
             $productList = $productModel->findByName($_GET['q']);
         }
+
         require_once './View/search.php';
     }
     private function loginPage()

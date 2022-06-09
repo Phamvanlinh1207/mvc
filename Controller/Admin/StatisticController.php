@@ -9,33 +9,48 @@ class StatisticController {
     }
 
     public function invoke() {
-        if(!isset($_GET['page'])) die();
-
-        switch($_GET['page']){
-            case 'index':
-                $this->orderThisMonth();
-                break;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            switch($_GET['page']){
+                case 'today':
+                    $this->todayPage();
+                    break;
+                case 'thisWeek':
+                    $this->thisWeekPage();
+                    break;
+                case 'lastMonth':
+                    $this->lastMonthPage();
+                    break;
+            }
         }
     }
 
-    public function orderThisMonth(){
-         $year = date("Y");
-         $month = date("M");
-         $day = date("D");
-         $begin = sprintf("%s-%s-01", $year, $month);
-         $end = sprintf("%s-%s-%s", $year, $month, $day);
+    private function todayPage(){
+        $timeEnd = date("Y/m/d");
+        $datetime = new DateTime('yesterday');
+        $timeBegin = $datetime->format('Y-m-d');
+        $pendingOrders = $this->orderModel->findOrdersByTime('pending', $timeBegin, $timeEnd);
+        $finishedOrders = $this->orderModel->findOrdersByTime('finished', $timeBegin, $timeEnd);
 
-         $orders = $this->orderModel->findOrdersByTime('2022-05-31','2022-06-07');
-         echo json_encode($orders);
-         die();
+        require_once './View/Admin/statistic/index.php';
     }
 
-    public function orderToday(){
-        $begin = 
-        $end = date("Y-m-d H:i:s");
+    private function thisWeekPage(){
+        $day = date('w');
+        $timeBegin = date('m-d-Y', strtotime('-'.$day.' days'));
+        $timeEnd = date("Y/m/d");;
+        $pendingOrders = $this->orderModel->findOrdersByTime('pending', $timeBegin, $timeEnd);
+        $finishedOrders = $this->orderModel->findOrdersByTime('finished', $timeBegin, $timeEnd);
+
+        require_once './View/Admin/statistic/index.php';
     }
 
-    public function orderLastWeek(){
+    private function lastMonthPage(){
+        $timeBegin = date("Y-n-j", strtotime("first day of previous month"));
+        $timeEnd = date("Y-n-j", strtotime("last day of previous month"));
+        $pendingOrders = $this->orderModel->findOrdersByTime('pending', $timeBegin, $timeEnd);
+        $finishedOrders = $this->orderModel->findOrdersByTime('finished', $timeBegin, $timeEnd);
 
+        require_once './View/Admin/statistic/index.php';
     }
+
 }

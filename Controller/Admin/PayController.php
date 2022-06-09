@@ -9,8 +9,7 @@ class PayController {
     }
 
     public function invoke() {
-        if(!isset($_GET['page'])) die();
-
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {                  
         switch($_GET['page']){
             case 'index':
                 $this->indexPage();
@@ -27,18 +26,19 @@ class PayController {
             case 'pay':
                 $this->storePage();
                 break;
+        }    
         }
 
-        if(!isset($_POST['page'])) die();
-        
-        switch($_POST['page']){
-            case 'store':
-                $this->storePage();
-                break;
-            case 'update':
-                $this->updatePage();
-                break;
-        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {                  
+            switch($_POST['page']){
+                case 'store':
+                    $this->storePage();
+                    break;
+                case 'update':
+                    $this->updatePage();
+                    break;
+            }
+        }        
     }
 
     private function indexPage(){

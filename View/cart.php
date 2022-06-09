@@ -64,6 +64,7 @@ function xoa()
                         </tr>
                     </thead>
                     <tbody>
+
                         <?php foreach ($productList as $product) { ?>
                             <tr>
                                 <td>
@@ -73,24 +74,29 @@ function xoa()
                                 <td><?php echo $product['price']; ?>,000đ</td>
                                 <td><?php echo $product['quantity']; ?></td>
                                 <td><?php echo calc_product_price($product); ?>,000đ</td>
-                                <td><a href="cart.php?delid=?">Xoá</a></td>
+                                <td><a href="<?php echo url_pattern('homeController', 'cartDelete', $product['productId']); ?>"><i class="fa fa-trash-o"></i></a></td>
                             </tr>
                         <?php    } ?>
                     </tbody>
                     <tfoot>
+                        <?php $total_all = 0; ?>
+                        <?php if (count($productList) > 0) foreach ($productList as $product) { ?>
+                        <?php
+                            $total_all += $product['price'] * $product['quantity'];
+                        } ?>
                         <tr>
+                            <th>Tổng</th>
                             <td></td>
-                            <td colspan="3"><strong>Tổng giá</strong>
-                            </td>
-                            <td colspan="2"><strong>đ</strong>
-                            </td>
+                            <td></td>
+                            <td></td>
+                            <th> <?= number_format($total_all) ?>,000đ</th>
                         </tr>
                     </tfoot>
                 </table>
                 <div class="cart_navigation ">
                     <div class="row">
                         <div class="col-md-9">
-                            
+
                         </div>
                         <div class="col-md-3">
                             <div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -106,7 +112,7 @@ function xoa()
                                             <div class="modal-body">
                                                 <form id="formPay" method="post">
                                                     <input type="hidden" name="controller" value="homeController">
-                                                    <input type="hidden" name="page" value="payProcess">                      
+                                                    <input type="hidden" name="page" value="payProcess">
                                                     <label for="inputPassword5" class="form-label">Họ và tên</label>
                                                     <input type="text" class="form-control" placeholder="Họ và tên" value="<?php echo $user['name']; ?>" name="name">
                                                     <label for="inputPassword5" class="form-label">Số điện thoại</label>
@@ -115,6 +121,7 @@ function xoa()
                                                     <input type="text" class="form-control" placeholder="Địa chỉ" value="<?php echo $user['address']; ?>" name="address">
                                                     <label for="exampleFormControlTextarea1" class="form-label">Ghi chú về đơn hàng</label>
                                                     <textarea name="note" class="form-control" placeholder="Ghi chú đơn hàng, ví dụ: thời gian giao hay địa điểm giao chi tiết" rows="3"></textarea>
+                                                    <input name="paymentMethod" id="paymentMethod-93948" type="radio" class="input-radio" data-bind="paymentMethod" value="93948"> Thanh toán khi nhận hàng
                                                 </form>
                                             </div>
                                             <div class="modal-footer">

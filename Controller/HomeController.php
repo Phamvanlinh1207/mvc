@@ -56,8 +56,8 @@ class HomeController
                 case 'order':
                     $this->orderPage();
                     break;
-                case 'registration':
-                    $this->registrationPage();
+                case 'cartDelete':
+                    $this->cartDeletePage();
                     break;
             }
         }        
@@ -149,9 +149,20 @@ class HomeController
         $productList = $productModel->all();
         require_once './View/order.php';
     }
-    private function registrationPage()
-    {
-        require_once './View/registration.php';
+    private function cartDeletePage() {
+        if(!isset($_GET['id'])) die();
+        $productId = $_GET['id'];
+        
+        $cart = $_SESSION['cart'];
+        for($i=0; $i < count($cart); $i++){
+            if($cart[$i]['productId'] == $productId)
+                unset($cart[$i]);
+        }
+
+        unset($_SESSION['cart']);
+        $_SESSION['cart'] = $cart;
+
+        redirect(url_pattern('homeController', 'cart'));
     }
 
     private function payProcess()

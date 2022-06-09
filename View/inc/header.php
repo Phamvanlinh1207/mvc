@@ -2,6 +2,9 @@
     .dangxuat {
         margin-left: 30px;
     }
+    .search-wrapper{
+        margin-left: 42px;
+    }
 </style>
 <header>
     <div class="top-header">

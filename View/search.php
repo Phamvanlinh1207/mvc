@@ -125,17 +125,18 @@
                                     <!--Vùng dữ liệu-->
                                     <?php
                                     foreach ($productList as $product) { ?>
-                                        <div class="col-xs-2 col-2 col-lg-2 mb-4">
-                                            <div class="card">
-                                                <img src="<?php echo $product->image; ?>" width="100%" height="200px">
-                                                <div class="card-body">
-                                                    <a href="single.php?id=<?php echo $product->id; ?>"><?php echo $product->name; ?></a>
-                                                    <h6 class="card-text"><?php echo $product->price; ?>đ</h6>
-
-                                                    <a class="btn btn-success" href="order.php?id=<?php echo $product->id; ?>">Thêm vào giỏ </a>
-                                                </div>
+                                        <div class="col-xs-3 col-3 col-lg-3 mb-3">
+                                                <a href="<?php echo url_pattern('homeController', 'single', $product->id); ?>">
+                                                    <div class="card" style="text-align:Center;">
+                                                        <img src="<?php echo $product->image; ?>" width="150px" height="170px">
+                                                        <div class="card-body">
+                                                            <p style="color: black"><?php echo $product->name; ?></p>
+                                                            <b class="card-text  " style="color: red"><?php echo $product->price; ?>,000đ</b>
+                                                            <a class="btn btn-warning" href="<?php echo url_pattern('homeController', 'single', $product->id) ?>">Xem chi tiết </a>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </div>
                                     <?php } ?>
                                 </div>
                             </div>

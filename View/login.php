@@ -63,7 +63,7 @@
                         <h4>BẠN CHƯA CÓ TÀI KHOẢN</h4>
                         <p>Đăng ký tài khoản ngay để có thể mua hàng nhanh chóng và dễ dàng hơn ! Ngoài ra còn có rất
                             nhiều chính sách và ưu đãi cho các thành viên</p>
-                        <a href="dangky.html"><button>TẠO TÀI KHOẢN</button> </a><br>
+                        <a href="<?php echo url_pattern('authController', 'register'); ?>"><button>TẠO TÀI KHOẢN</button> </a><br>
                     </div>
                 </div>
             </div>

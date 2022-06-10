@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="./public/css/gioithieu.css">
     <!-- Bootstrap CSS v5.0.2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .dangnhap p{
+            margin-left: 310px;
+        }
+    </style>
 </head>
 <body>
     <!-- start header -->
@@ -38,7 +43,7 @@
             <!--Bắt Đầu Phần Nội Dung-->
             <div class="container">
                 <div class="row noidung" style="text-align:center;">
-                    <div class="dangnhap col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-12">
+                    <div class="dangnhap col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <form action="" method="POST">
                             <input type="hidden" name="controller" value="authController">
                             <input type="hidden" name="page" value="register">

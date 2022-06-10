@@ -143,20 +143,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chuyentrang">
-                                <div class="container">
-                                    <nav class="row">
-                                        <ul class="pagination pagination-lg justify-content-center">
-                                            <li class="page-item active" aria-current="page">
-                                                <span class="page-link">1</span>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">Tiếp</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
+                           
 
                         </div>
 

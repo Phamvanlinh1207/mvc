@@ -80,7 +80,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="<?php echo admin_url_pattern('statisticController', 'lastMonth'); ?>">
+        <a class="nav-link" href="">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Statistic</span></a>
     </li>

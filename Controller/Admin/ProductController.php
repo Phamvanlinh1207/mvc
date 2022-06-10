@@ -59,7 +59,7 @@ class ProductController
                 'name' => $_POST['name'],
                 'price' => $_POST['price'],
                 'quantity' => $_POST['quantity'],
-                'images' => $_POST['images']
+                'image' => $_POST['image']
             )
         );
 
@@ -80,7 +80,7 @@ class ProductController
                 'name' => $_POST['name'],
                 'price' => $_POST['price'],
                 'quantity' => $_POST['quantity'],
-                'images' => $_POST['images']
+                'image' => $_POST['image']
             )
         );
 

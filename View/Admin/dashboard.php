@@ -120,7 +120,7 @@
                                          <?php foreach ($pendingOrders as $order) { ?>
                                              <tr class="<?php echo orderStyle($order->status); ?>">
                                                  <td> <a href="<?php admin_url_pattern('orderdetailController', 'index', $order->code); ?>"><?php echo increment($i); ?></a></td>
-                                                 <td> <a href="<?php echo admin_url_pattern('orderdetailController', 'index', $order->code); ?>"><?php echo $order->code; ?></a></td>
+                                                 <td> <a href=""><?php echo $order->code; ?></a></td>
                                                  <td><?php echo $order->description; ?></td>
                                                  <td><?php echo $order->status; ?></td>
                                                  <td><?php echo $order->users_id; ?></td>
@@ -164,7 +164,7 @@
                                          <?php foreach ($finishedOrders as $order) { ?>
                                              <tr class="<?php echo orderStyle($order->status); ?>">
                                                  <td> <a href="<?php admin_url_pattern('orderdetailController', 'index', $order->code); ?>"><?php echo increment($i); ?></a></td>
-                                                 <td> <a href="<?php echo admin_url_pattern('orderdetailController', 'index', $order->code); ?>"><?php echo $order->code; ?></a></td>
+                                                 <td> <a href=""><?php echo $order->code; ?></a></td>
                                                  <td><?php echo $order->description; ?></td>
                                                  <td><?php echo $order->status; ?></td>
                                                  <td><?php echo $order->users_id; ?></td>

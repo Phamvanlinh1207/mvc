@@ -1,9 +1,9 @@
 
 /* order style */
 .order-pending{
-    background-color: yellow;
+    background-color: rgb(249, 167, 60);
 }
 
 .order-finished{
-    background-color: green;
+    background-color: rgb(31, 207, 243);
 }

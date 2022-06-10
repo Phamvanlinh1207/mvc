@@ -121,6 +121,9 @@ function xoa()
                                                     <input type="text" class="form-control" placeholder="Địa chỉ" value="<?php echo $user['address']; ?>" name="address">
                                                     <label for="exampleFormControlTextarea1" class="form-label">Ghi chú về đơn hàng</label>
                                                     <textarea name="note" class="form-control" placeholder="Ghi chú đơn hàng, ví dụ: thời gian giao hay địa điểm giao chi tiết" rows="3"></textarea>
+                                                    <hr>
+                                                    <label for="inputPassword5" class="form-label">Mã giảm giá</label>
+                                                    <input type="text" class="form-control" placeholder="Mã giảm giá"> <br>
                                                     <input name="paymentMethod" id="paymentMethod-93948" type="radio" class="input-radio" data-bind="paymentMethod" value="93948"> Thanh toán khi nhận hàng
                                                 </form>
                                             </div>

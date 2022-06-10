@@ -62,16 +62,16 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Product price:</label>
-                            <input price="price" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter price">
+                            <input name="price" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter price">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Product quantity:</label>
-                            <input quantity="quantity" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter quantity">
+                            <input name="quantity" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter quantity">
                             
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Product description:</label>
-                            <input images="images" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter images">
+                            <input name="image" type="text" class="form-control" id="cat" aria-describedby="" placeholder="Enter images">
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Submit</button>

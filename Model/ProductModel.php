@@ -52,7 +52,7 @@ class ProductModel extends Database {
         $price = $attr['price'];
         $quantity = $attr['quantity'];
         $image = $attr['image'];
-        $sql = "insert into products(name, price, quantity, image) values('$name','$price','$quantity','$image')";
+        $sql = "insert into products(name, price, quantity, image) values('$name',$price,$quantity,'$image')";
 
         $this->pdo->exec($sql);
     }
@@ -62,7 +62,7 @@ class ProductModel extends Database {
         $price = $attr['price'];
         $quantity = $attr['quantity'];
         $image = $attr['image'];
-        $sql ="UPDATE products set name= '$name', price= '$price', quantity= '$quantity', image='$image'  where id=" . $attr['id'];
+        $sql ="UPDATE products set name= '$name', price= $price, quantity= $quantity, image='$image'  where id=" . $attr['id'];
         var_dump($sql);
         
         $this->pdo->exec($sql);
